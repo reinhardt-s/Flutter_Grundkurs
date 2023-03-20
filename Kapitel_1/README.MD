@@ -1010,9 +1010,3 @@ class _MainPageState extends State<MainPage> {
 }
 ```
 </details>
-
------
-
-
-
-</details>
