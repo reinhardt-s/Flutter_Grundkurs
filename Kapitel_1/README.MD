@@ -155,7 +155,7 @@ void main() {
 
 </details>
 
-### Erste App - Step 2_1
+### Erste App - Step 2.1
 
 <details>
   <summary>Code</summary>
@@ -193,15 +193,13 @@ void main() {
 ## Zweite App - Challenge 1:
 Erstelle eine App, welche:
  * Ein Scaffold hat
- * Die Hintergrundfarbe ist `teal` hat
- * Ein Container als body hat
-Ändere die Hintegrundfarbe des Scaffolds auf `blueGrey`
+ * Die Hintergrundfarbe `teal` hat
+ * Ein Container als body hat  
+Ändere die Hintegrundfarbe des Scaffolds auf `blueGrey`  
 
 Conainer: https://api.flutter.dev/flutter/widgets/Container-class.html
 
 ### Zweite App - Step 1
-
-
 
 Hot Reload funktioniert nur bei Stateful Widgets oder Stateless Widgets
 
