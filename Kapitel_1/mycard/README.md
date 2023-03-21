@@ -29,3 +29,26 @@ Dieser Flutter-Code erstellt eine einfache Visitenkarten-App, die Informationen 
 - Name: Schriftart 'Pacifico', Größe 40.0, Farbe weiß und fett.
 - Job: Schriftart 'Varela', Größe 20.0, Farbe `Colors.blueGrey.shade100`, fett und 2.5 Buchstabenabstand.
 - Telefonnummer und E-Mail-Adresse: Schriftart 'Varela', Größe 19.0, Farbe `Colors.blueGrey.shade900`.
+
+
+## Verwendete Material-Widgets und Dokumentation
+
+In der folgenden Tabelle finden Sie die Material-Widgets, die in der My Card App verwendet werden, sowie Links zur offiziellen Dokumentation:
+
+| Material-Widget       | Dokumentation                                              |
+|-----------------------|------------------------------------------------------------|
+| MaterialApp            | [MaterialApp Docs](https://api.flutter.dev/flutter/material/MaterialApp-class.html) |
+| Scaffold              | [Scaffold Docs](https://api.flutter.dev/flutter/material/Scaffold-class.html) |
+| SafeArea              | [SafeArea Docs](https://api.flutter.dev/flutter/widgets/SafeArea-class.html) |
+| Column                | [Column Docs](https://api.flutter.dev/flutter/widgets/Column-class.html) |
+| CircleAvatar          | [CircleAvatar Docs](https://api.flutter.dev/flutter/material/CircleAvatar-class.html) |
+| AssetImage            | [AssetImage Docs](https://api.flutter.dev/flutter/painting/AssetImage-class.html) |
+| Text                  | [Text Docs](https://api.flutter.dev/flutter/widgets/Text-class.html) |
+| SizedBox              | [SizedBox Docs](https://api.flutter.dev/flutter/widgets/SizedBox-class.html) |
+| Divider               | [Divider Docs](https://api.flutter.dev/flutter/material/Divider-class.html) |
+| Card                  | [Card Docs](https://api.flutter.dev/flutter/material/Card-class.html) |
+| EdgeInsets            | [EdgeInsets Docs](https://api.flutter.dev/flutter/painting/EdgeInsets-class.html) |
+| ListTile              | [ListTile Docs](https://api.flutter.dev/flutter/material/ListTile-class.html) |
+| Icon                  | [Icon Docs](https://api.flutter.dev/flutter/widgets/Icon-class.html) |
+
+Diese Tabelle bietet einen schnellen Überblick über die verwendeten Material-Widgets und die zugehörigen Dokumentationslinks. Die Links führen zur offiziellen Flutter-Dokumentation, in der Sie weitere Informationen und Beispiele finden.
