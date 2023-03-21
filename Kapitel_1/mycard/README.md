@@ -16,7 +16,7 @@ Dieser Flutter-Code erstellt eine einfache Visitenkarten-App, die Informationen 
 - `MaterialApp` und `Scaffold` bilden die Grundstruktur der App.
 - Der Hintergrund der App ist `Colors.blueGrey`.
 - Der Hauptinhalt der App ist in einer `SafeArea` eingeschlossen, um auf verschiedenen Geräten korrekt angezeigt zu werden.
-- Eine `Column`-Widget wird verwendet, um alle Elemente der Visitenkarte vertikal anzuordnen.
+- Ein `Column`-Widget wird verwendet, um alle Elemente der Visitenkarte vertikal anzuordnen.
 - `CircleAvatar` zeigt das Benutzer-Avatar-Bild.
 - Zwei `Text`-Widgets zeigen den Namen und den Job des Benutzers an.
 - Eine `SizedBox` mit einem `Divider`-Widget erstellt eine Trennlinie.
