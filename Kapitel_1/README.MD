@@ -1,7 +1,5 @@
 # Kapitel 1 - Einführung in Flutter
 
-![My Card App](./my_card.png)
-
 ## Was wir lernen werden
   * Was ist Flutter?
   * Installation
