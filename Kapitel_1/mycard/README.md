@@ -1,5 +1,7 @@
 # Flutter-Code Dokumentation - My Card App
 
+![My Card App](../my_card.png)
+
 Dieser Flutter-Code erstellt eine einfache Visitenkarten-App, die Informationen wie Avatar, Name, Job, Telefonnummer und E-Mail-Adresse anzeigt.
 
 ## Hauptkomponenten
