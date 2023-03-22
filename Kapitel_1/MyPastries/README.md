@@ -1,6 +1,6 @@
 # Flutter-Code Dokumentation für My Pastries
 
-![My Card App](../my_pastries.png)
+![My Pastries](../my_pastries.png)
 
 Dieser Flutter-Code erstellt eine einfache App namens "My Pastries", in der ein Zähler angezeigt wird, der die Anzahl der gekauften Gebäcke angibt. Die App enthält eine Hintergrundabbildung, einen Text, der die Anzahl der gekauften Gebäcke anzeigt, und einen Button zum Hinzufügen von Gebäck.
 
