@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mycard">
+    package="de.needfulapps.mycard">
    <application
         android:label="mycard"
         android:name="${applicationName}"
