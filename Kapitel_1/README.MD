@@ -1,4 +1,4 @@
-# Kapitel 1 - Einführung in Flutter
+# Kapitel 1 - Einführung in Flutter / Erste Designs
 
 ## Was wir lernen werden
   * Was ist Flutter?
@@ -28,7 +28,7 @@
 
 
 ## Was wir programmieren werden
-* MyPastries - Eine einfache App mit einem Button  
+* MyPastries - Eine einfache App mit einem Hintergrundbild
 ![](my_pastries.png)  
 
 * MyCard - Eine App mit einem Profilbild und Text  
@@ -78,7 +78,7 @@ void main() => runApp(MaterialApp(home: Center(child: Text('Hello World!'),),),)
 
 </details>
 
-### Erste App - Step 1_1
+### Erste App - Step 1.1
 Durch Komma am Ende der Zeile wird ein Zeilenumbruch und Einrückung erzwungen
 
 <details>
@@ -100,9 +100,9 @@ void main() => runApp(
 
 
 
-### Erste App - Step 1_2
-Fat Arrow Syntax ersetzen durch {}
-Kommentare werden mit `//` eingeleitet
+### Erste App - Step 1.2
+Die Fat Arrow Syntax ist nur für eine Zeile Code. Sie wird durch geschweifte Klammern ersetzt, wenn mehrere Zeilen Code verwendet werden.
+Kommentare werden mit `//` eingeleitet. Mehrzeilige Kommentare werden mit `/*` und `*/` eingeleitet.
 
 <details>
   <summary>Code</summary>
@@ -127,7 +127,12 @@ void main() {
 ### Erste App - Step 2
 Scaffold https://api.flutter.dev/flutter/material/Scaffold-class.html  
 AppBar https://api.flutter.dev/flutter/material/AppBar-class.html  
-Image https://api.flutter.dev/flutter/widgets/Image-class.html  
+Image https://api.flutter.dev/flutter/widgets/Image-class.html 
+
+Wir lernen die Widgets Scaffold, AppBar und Image kennen.
+Scaffold ist das Grundgerüst einer App. Es enthält die AppBar und den Body.
+Die AppBar ist die Titelleiste einer App. Sie enthält den Titel und die Icons.
+Image ist ein Widget, welches ein Bild darstellt.
 
 <details>
   <summary>Code</summary>
@@ -156,7 +161,19 @@ void main() {
 </details>
 
 ### Erste App - Step 2.1
+Wir passen die Größe des Bildes so an, dass es die gesamte Fläche ausfüllt.
+fit => https://api.flutter.dev/flutter/painting/BoxFit-class.html
 
+Folgende Optionen stehen zur Verfügung:
+| Option               | Funktion                |
+|----------------------|-------------------------|
+| `fit: BoxFit.fill`   | Füllt den Container     |
+| `fit: BoxFit.contain`| Behält das Seitenverhältnis bei und füllt den Container so weit wie möglich aus |
+| `fit: BoxFit.fitWidth` | Skaliert das Bild, um die Breite des Containers auszufüllen, wobei das Seitenverhältnis erhalten bleibt |
+| `fit: BoxFit.fitHeight`| Skaliert das Bild, um die Höhe des Containers auszufüllen, wobei das Seitenverhältnis erhalten bleibt |
+| `fit: BoxFit.none`   | Keine Skalierung, zeigt das Bild in seiner ursprünglichen Größe an |
+| `fit: BoxFit.scaleDown`| Skaliert das Bild so, dass es sowohl in Breite als auch in Höhe in den Container passt, ohne das Seitenverhältnis zu ändern |
+| `fit: BoxFit.cover`    | Skaliert das Bild, um den gesamten Container auszufüllen, wobei das Seitenverhältnis erhalten bleibt und Teile des Bildes möglicherweise abgeschnitten werden |
 <details>
   <summary>Code</summary>
   
@@ -227,7 +244,8 @@ void main() {
 </details>
 
 ### Zweite App - Step 2
-Mit `stless` erzeugen wir ein Stateless Widget
+Mit `stless` erzeugen wir ein Stateless Widget.
+Ein Stateless Widget ist ein Widget, welches sich nicht ändert. Es hat keine State.
 
 <details>
   <summary>Code</summary>
@@ -237,10 +255,12 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
+    // Ruft das Stateless Widget auf BCPage auf
     const BCPage(),
   );
 }
 
+// Erstellt ein Stateless Widget
 class BCPage extends StatelessWidget {
   const BCPage({Key? key}) : super(key: key);
 
@@ -266,9 +286,14 @@ class BCPage extends StatelessWidget {
 </details>
 
 ### Zweite App - Step 3
-`SafeArea` https://api.flutter.dev/flutter/widgets/SafeArea-class.html  
-`Margin`: Abstand des Containers zu den Seiten  
-`Padding`: Abstand des Containers zum Inhalt  
+| Widget                                                          | Funktionserklärung                                                                                          |
+|----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| [`SafeArea`](https://api.flutter.dev/flutter/widgets/SafeArea-class.html) | Ein Widget, das seine Kinder innerhalb des sicheren Bereichs eines Bildschirms platziert, um Displayeinschnitte und Systemanzeigen zu vermeiden. |
+| [`Margin`](https://api.flutter.dev/flutter/widgets/Container-class.html)  | Ein Randabstand, der durch das `margin`-Attribut des `Container`-Widgets festgelegt wird und den Abstand zwischen dem Widget und seinen benachbarten Widgets definiert. |
+| [`Padding`](https://api.flutter.dev/flutter/widgets/Padding-class.html)   | Ein Widget, das innere Abstände für seine Kinder erzeugt, um Platz zwischen dem Widget-Rand und seinem Inhalt zu schaffen.                                        |
+| [`Text`](https://api.flutter.dev/flutter/widgets/Text-class.html)        | Ein Ein Widget, das stilisierten Text anzeigt und dabei verschiedene Textstile, Schriftarten und Ausrichtungen unterstützt.                                                                                |
+
+
 `width` / `height`: Breite und Höhe des Containers
 
 <details>
@@ -315,15 +340,19 @@ class BCPage extends StatelessWidget {
 </details>
 
 ### Zweite App - Step 4
-`Column` https://api.flutter.dev/flutter/widgets/Column-class.html   
-`Row` https://api.flutter.dev/flutter/widgets/Row-class.html  
+| Widget                                                          | Funktionserklärung                                                                                          |
+|----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| [`Row`](https://api.flutter.dev/flutter/widgets/Row-class.html)      | Ein Widget, das seine Kinder horizontal in einer einzigen Zeile anordnet und dabei die verfügbare Breite ausfüllt.                                                    |
+| [`Column`](https://api.flutter.dev/flutter/widgets/Column-class.html)  | Ein Widget, das seine Kinder vertikal in einer einzigen Spalte anordnet und dabei die verfügbare Höhe ausfüllt.                                                      |
 
-`Column` nimmt die Breite der Kinder Element und nimmt die ganze Höhe  
-`Row` nimmt die Höhe der Kinder Element und nimmt die ganze Breite
 
-`mainAxisAlignment: MainAxisAlignment.center` Zentriert die Kindelemente auf der Hauptachse (bei Column vertikal, bei Row horizontal)  
-`verticalDirection: VerticalDirection.up` Ändert die Richtung in der die Kinder Elemente angeordnet werden  
-`mainAxisSize: MainAxisSize.min` Minimiert die Größe des Containers auf der Hauptachse (bei Column auf die Höhe, bei Row auf die Breite) auf die Größe der Kinder Elemente  
+
+| Attribut                                                                                                 | Funktionserklärung                                                                                                         |
+|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| [`mainAxisAlignment: MainAxisAlignment.center`](https://api.flutter.dev/flutter/rendering/MainAxisAlignment-class.html)       | Zentriert die Kinder entlang der Hauptachse (horizontal für `Row` und vertikal für `Column`).                              |
+| [`mainAxisSize: MainAxisSize.min`](https://api.flutter.dev/flutter/rendering/MainAxisSize-class.html)                      | Reduziert die Größe der Hauptachse auf die minimale Größe, die notwendig ist, um alle Kinder zu umfassen.                  |
+| [`verticalDirection: VerticalDirection.up`](https://api.flutter.dev/flutter/rendering/VerticalDirection-class.html)         | Ordnet die Kinder entlang der vertikalen Achse in umgekehrter Reihenfolge an, sodass sie von unten nach oben angeordnet sind. |
+ 
 
 ### Zweite App - Step 5
 `Container` in `Column` am Ende beginnen lassen
@@ -493,23 +522,93 @@ Wo sind die `SizedBox` ?
   <summary>Code</summary>
 
 ```dart
+import 'package:flutter/material.dart';
 
+void main() {
+  runApp(
+    const BCPage(),
+  );
+}
+
+class BCPage extends StatelessWidget {
+  const BCPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.blueGrey,
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.blueGrey[900],
+          title: Text('My Business Card'),
+        ),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          verticalDirection: VerticalDirection.up,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          // crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Container(
+              // width: 100,
+              height: 100,
+              color: Colors.brown,
+              child: Text('Container_1'),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              // width: 300,
+              height: 100,
+              color: Colors.brown[900],
+              child: Text('Container_2'),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              // width: 100,
+              height: 100,
+              color: Colors.teal[900],
+              child: Text('Container_3'),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              // width: double.infinity,
+              height: 10,
+              color: Colors.white,
+              child: Text('Container_3'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 ```
 
 </details>
 
 
 ### Zweite App - Step 7: Umstyling
+| Bezeichnung                                                              | Funktionserklärung                                                                                                        |
+|-------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| [`CircleAvatar`](https://api.flutter.dev/flutter/material/CircleAvatar-class.html) | Ein kreisförmiges Avatar-Widget, das typischerweise ein Benutzerbild oder ein Initial darstellt.                        |
+| [`TextStyle`](https://api.flutter.dev/flutter/painting/TextStyle-class.html)     | Eine Klasse, die verschiedene Textstile wie Farbe, Schriftart, Schriftgröße und Textschatten definiert und anwendet. |
+| [`AssetImage`](https://api.flutter.dev/flutter/painting/AssetImage-class.html) | Ein Bildanbieter, der Bilder aus den Asset-Bundles lädt, normalerweise aus den in der `pubspec.yaml` definierten Assets. |
+
 * Lösche alle Elemente innerhalb der `body` des `Scaffold` Widgets
 * Erstelle eine neue Ordner-Struktur `assets\images` und füge entweder `avatar_1.png` oder `avatar_2.png` hinzu
 * Ergänze in `pubspec.yaml` die `assets` Sektion
 * Füge dem Scaffold eine `SafeArea` hinzu
 * Füge der `SafeArea` eine `Column` hinzu
-* Füge der `Column` eine `CircleAvatar` hinzu (https://api.flutter.dev/flutter/material/CircleAvatar-class.html)
+* Füge der `Column` eine `CircleAvatar` hinzu 
 * Setzte die `radius` der `CircleAvatar` auf 50.0
-* Setze foregroundImage des `CircleAvatar` auf `AssetImage('assets/images/avatar_1.png')` (AssetImage https://api.flutter.dev/flutter/painting/AssetImage-class.html)
-* Füge ein Text Widget mit deinem Namen hinzu  
-TextStyle https://api.flutter.dev/flutter/painting/TextStyle-class.html
+* Setze foregroundImage des `CircleAvatar` auf `AssetImage('assets/images/avatar_1.png')` oder `AssetImage('assets/images/avatar_2.png')`
+* Füge ein Text Widget mit deinem Namen hinzu . z.B. `Kim Smith`
 * Passe den TextStyle wie folgt an:
   * `color: Colors.white`
   * `fontSize: 40.0`
@@ -543,7 +642,7 @@ class BCPage extends StatelessWidget {
                   foregroundImage: AssetImage('assets/images/avatar_1.png'),
                   radius: 50.0),
               Text(
-                'Alex Smith',
+                'Kim Smith',
                 style: TextStyle(
                     fontSize: 40.0,
                     color: Colors.white,
@@ -612,7 +711,7 @@ class BCPage extends StatelessWidget {
                   foregroundImage: AssetImage('assets/images/avatar_1.png'),
                   radius: 50.0),
               Text(
-                'Alex Smith',
+                'Kim Smith',
                 style: TextStyle(
                     fontSize: 40.0,
                     color: Colors.white,
@@ -640,10 +739,17 @@ class BCPage extends StatelessWidget {
 </details>
 
 ### Zweite App - Step 9: Material Icons und Widgets
+
+| Bezeichnung                                                           | Funktionserklärung                                                                                                     |
+|----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| [`Icon`](https://api.flutter.dev/flutter/widgets/Icon-class.html)     | Ein grafisches Symbol, das auf der Grundlage eines Glyphs aus einem Schriftsatz erstellt wird, um eine Bedeutung darzustellen. |
+| [`Icons`](https://api.flutter.dev/flutter/material/Icons-class.html)  | Eine vordefinierte Sammlung von Material Design-Icons, die in Kombination mit dem `Icon`-Widget verwendet werden können.    |
+
+
 * Füge nach dem Job-Titel, einen `Container` hinzu
 * Der `Container` soll eine `Row` als `child` haben
   * Die `Row` soll als `children haben:
-    * Ein `Icon` mit dem `Icons.phone` und `color: Colors.blueGrey.shade900` (https://api.flutter.dev/flutter/material/Icons-class.html) - (https://materialpalette.com)
+    * Ein `Icon` mit dem `Icons.phone` und `color: Colors.blueGrey.shade900`- (https://materialpalette.com)
     * Ein `SizedBox` mit `width: 10.0`
     * Ein `Text` Widget mit der Telefonnummer
     * Style den `Text` Widget wie folgt:
@@ -755,7 +861,12 @@ class BCPage extends StatelessWidget {
 
 
 ### Zweite App - Step 10: Divider und Card Widgets
-Card Widgets sind sehr nützlich, um deine App zu strukturieren und deine Widgets zu gruppieren. (https://api.flutter.dev/flutter/material/Card-class.html)
+
+| Bezeichnung                                                               | Funktionserklärung                                                                                                              |
+|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| [`Card`](https://api.flutter.dev/flutter/material/Card-class.html)       | Ein Material Design-Karten-Widget, das verwendet wird, um verwandte Informationen in einer abgerundeten, erhöhten Box anzuzeigen. |
+
+
 * Tausche die `Container` für die Telefonnummer und Email gegen ein `Card` Widget aus
 * Füge für den Inhalt der Card-Widgets ein `Padding` als parent hinzu.
 * Setze das `padding`auf `EdgeInsets.all(20.0)`
@@ -790,7 +901,7 @@ class BCPage extends StatelessWidget {
                   radius: 50.0),
               // Unser Name
               Text(
-                'Alex Smith',
+                'Kim Smith',
                 style: TextStyle(
                     fontSize: 40.0,
                     color: Colors.white,
@@ -865,12 +976,18 @@ class BCPage extends StatelessWidget {
 </details>
 
 ### Zweite App - Step 10.1: Divider und Card Widgets
-ListTiles kommen vorgefertigt mit Leading-Widget und einem Title-Widget (https://api.flutter.dev/flutter/material/ListTile-class.html)
+
+| Bezeichnung                                                               | Funktionserklärung                                                                                                              |
+|--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| [`ListTile`](https://api.flutter.dev/flutter/material/ListTile-class.html)| Ein einzelnes, fest codiertes Element innerhalb einer Liste, das in der Regel aus einem Icon und einem Text besteht.             |
+| [`Divider`](https://api.flutter.dev/flutter/material/Divider-class.html)  | Ein dünnes, horizontal oder vertikal ausgerichtetes Linien-Widget, das als Trennzeichen zwischen Elementen in einer Liste dient.  |
+
+
 * Tausche die `Row` für die Telefonnummer und Email gegen ein `ListTile` Widget aus
-* Entferne die Padding Widgets
-* Zentriere den Inhalt der Column
-* Füger eine SizedBox zwischen dem Job-Title und der Telefonnummer ein. Sie soll 20.0 Pixel hoch sein.
-* Füge einen Devider in die SizedBox als child ein. (https://api.flutter.dev/flutter/material/Divider-class.html)
+* Entferne die `Padding` Widgets
+* Zentriere den Inhalt der `Column`
+* Füger eine `SizedBox` zwischen dem Job-Title und der Telefonnummer ein. Sie soll 20.0 Pixel hoch sein.
+* Füge einen `Divider` in die `SizedBox` als Child ein. Der Divider soll die Farbe `Colors.blueGrey.shade900` haben.
 
 
 <details>
