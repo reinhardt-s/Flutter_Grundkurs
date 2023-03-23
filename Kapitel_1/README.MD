@@ -11,16 +11,16 @@
     * Flutter
     * Umgebungsvariablen
   * Erste App erstellen: MyPastries
-    * Startet in main.dart, startet in main()
+    * Startet in main.dart, in der Funktion main()
     * Kommentare `// Kommentar` oder `/* Mehrzeiliger Kommentar */`
     * MaterialApp => https://material.io
     * Layout Elemente
     * Eigene Widgets erstellen
     * Context Actions
     * Image Assets
-    * App Icon
-  * Erstellen der Zweiten App: MyCard
-    * Hot Relaod
+    * Android-App-Icon
+  * Erstellen der zweiten App: MyCard
+    * Hot Reload
     * Stateless Widget => https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html
     * Stateful Widget => https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html
 
@@ -53,7 +53,7 @@
  * Eigene Bilder
 -----
 
-## Erste App
+## Erste App - Ausgangslage
 <details>
   <summary>Code</summary>
 
@@ -115,6 +115,10 @@ void main() {
   runApp(
     MaterialApp(
       home: Center(
+        /*
+        Center ist ein Layout Widget, welches ein Kind zentriert.
+        In diesem Fall ist das Kind ein Text Widget.
+        */
         child: Text('Hello World!'),
       ),
     ),
@@ -211,17 +215,12 @@ void main() {
 Erstelle eine App, welche:
  * Ein Scaffold hat
  * Die Hintergrundfarbe `teal` hat
- * Ein Container als body hat  
+ * Einen `Container` als `body` hat  
 Ändere die Hintegrundfarbe des Scaffolds auf `blueGrey`  
 
 Conainer: https://api.flutter.dev/flutter/widgets/Container-class.html
 
 ### Zweite App - Step 1
-
-Hot Reload funktioniert nur bei Stateful Widgets oder Stateless Widgets
-
-`stful` erzeugt ein Stateful Widget
-`stless` erzeugt ein Stateless Widget
 
 <details>
   <summary>Code</summary>
@@ -244,8 +243,21 @@ void main() {
 </details>
 
 ### Zweite App - Step 2
-Mit `stless` erzeugen wir ein Stateless Widget.
-Ein Stateless Widget ist ein Widget, welches sich nicht ändert. Es hat keine State.
+Hot Reload funktioniert nur bei Stateful Widgets oder Stateless Widgets
+
+`stful` erzeugt ein Stateful-Widget
+`stless` erzeugt ein Stateless-Widget
+
+`StatefulWidget` und `StatelessWidget` sind zwei grundlegende Widget-Typen in Flutter, die sich im Umgang mit dem Zustand (state) der Anwendung unterscheiden.
+
+`StatelessWidget`:
+
+Ein `StatelessWidget` ist ein Widget, das seinen Zustand nicht während seiner Lebensdauer ändert. Es beschreibt einen Teil der Benutzeroberfläche, der sich allein aufgrund seiner Konfiguration darstellen kann. Da sich ein `StatelessWidget` nicht ändert, wird es jedes Mal neu gerendert, wenn es neu konfiguriert wird (z. B. wenn sich die übergeordneten Widgets ändern).
+
+`StatefulWidget`:
+
+Ein `StatefulWidget`, im Gegensatz zum `StatelessWidget`, kann seinen Zustand während seiner Lebensdauer ändern. Es besteht aus zwei Teilen: dem Widget selbst und dem zugehörigen State-Objekt. Wenn sich der Zustand ändert, wird das Widget neu aufgebaut und aktualisiert seine Darstellung.
+
 
 <details>
   <summary>Code</summary>
@@ -286,7 +298,7 @@ class BCPage extends StatelessWidget {
 </details>
 
 ### Zweite App - Step 3
-| Widget                                                          | Funktionserklärung                                                                                          |
+| Widget/Eigenschaften                                                          | Funktionserklärung                                                                                          |
 |----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
 | [`SafeArea`](https://api.flutter.dev/flutter/widgets/SafeArea-class.html) | Ein Widget, das seine Kinder innerhalb des sicheren Bereichs eines Bildschirms platziert, um Displayeinschnitte und Systemanzeigen zu vermeiden. |
 | [`Margin`](https://api.flutter.dev/flutter/widgets/Container-class.html)  | Ein Randabstand, der durch das `margin`-Attribut des `Container`-Widgets festgelegt wird und den Abstand zwischen dem Widget und seinen benachbarten Widgets definiert. |
@@ -514,9 +526,9 @@ class BCPage extends StatelessWidget {
 
 ### Zweite App - Step 6
 `Row` https://api.flutter.dev/flutter/widgets/Row-class.html
-Rows verhalten sich ähnlich wie Columns, nur horizontal
-Tausche `Column` gegen `Row` aus
-Wo sind die `SizedBox` ?
+Rows verhalten sich ähnlich wie Columns, nur horizontal.
+Tausche `Column` gegen `Row` aus.
+Die `SizedBoxes` sind nicht mehr sichtbar. Was könnte die Ursache sein?
 
 <details>
   <summary>Code</summary>
@@ -600,16 +612,16 @@ class BCPage extends StatelessWidget {
 | [`TextStyle`](https://api.flutter.dev/flutter/painting/TextStyle-class.html)     | Eine Klasse, die verschiedene Textstile wie Farbe, Schriftart, Schriftgröße und Textschatten definiert und anwendet. |
 | [`AssetImage`](https://api.flutter.dev/flutter/painting/AssetImage-class.html) | Ein Bildanbieter, der Bilder aus den Asset-Bundles lädt, normalerweise aus den in der `pubspec.yaml` definierten Assets. |
 
-* Lösche alle Elemente innerhalb der `body` des `Scaffold` Widgets
+* Lösche alle Elemente innerhalb des `body` des `Scaffold` Widgets
 * Erstelle eine neue Ordner-Struktur `assets\images` und füge entweder `avatar_1.png` oder `avatar_2.png` hinzu
 * Ergänze in `pubspec.yaml` die `assets` Sektion
-* Füge dem Scaffold eine `SafeArea` hinzu
+* Füge dem `Scaffold` eine `SafeArea` hinzu
 * Füge der `SafeArea` eine `Column` hinzu
 * Füge der `Column` eine `CircleAvatar` hinzu 
 * Setzte die `radius` der `CircleAvatar` auf 50.0
-* Setze foregroundImage des `CircleAvatar` auf `AssetImage('assets/images/avatar_1.png')` oder `AssetImage('assets/images/avatar_2.png')`
-* Füge ein Text Widget mit deinem Namen hinzu . z.B. `Kim Smith`
-* Passe den TextStyle wie folgt an:
+* Setze `foregroundImage` des `CircleAvatar` auf `AssetImage('assets/images/avatar_1.png')` oder `AssetImage('assets/images/avatar_2.png')`
+* Füge ein `Text` Widget mit deinem Namen hinzu . z.B. `Kim Smith`
+* Passe den `TextStyle` wie folgt an:
   * `color: Colors.white`
   * `fontSize: 40.0`
   * `fontWeight: FontWeight.bold`
@@ -664,19 +676,20 @@ class BCPage extends StatelessWidget {
 fonts.google.com - Frei zur kommerziellen Nutzung  
 * Füge die ttf Datei in den Ordner `assets\fonts` hinzu
 * Ergänze in `pubspec.yaml` die `fonts` Sektion:
+
 ```yaml
 fonts:
   - family: Pacifico
     fonts:
       - asset: assets/fonts/Pacifico-Regular.ttf
 ```
+
 * Füge im TextStyle die `fontFamily` hinzu
 * Füge ein Text Widget mit deiner Berufsbezeichnung hinzu
 * Lade eine passende Schriftart von fonts.google.com
   * z.B. Varela Round
   * Füge die ttf Datei in den Ordner `assets\fonts` hinzu
-  * Ergänze in `pubspec.yaml` die `fonts` Sektion:
-  ```yaml
+  * Ergänze in `pubspec.yaml` die `fonts` Sektion.
 * Passe den TextStyle deiner Berufsbezeichnung wie folgt an:
   * `color: Colors.blueGrey.shade100`
   * `fontSize: 20.0`
@@ -746,20 +759,20 @@ class BCPage extends StatelessWidget {
 | [`Icons`](https://api.flutter.dev/flutter/material/Icons-class.html)  | Eine vordefinierte Sammlung von Material Design-Icons, die in Kombination mit dem `Icon`-Widget verwendet werden können.    |
 
 
-* Füge nach dem Job-Titel, einen `Container` hinzu
-* Der `Container` soll eine `Row` als `child` haben
-  * Die `Row` soll als `children haben:
+* Füge nach dem Job-Titel einen `Container` hinzu.
+* Der `Container` soll eine `Row` als `child` haben.
+  * Die `Row` soll als `children` haben:
     * Ein `Icon` mit dem `Icons.phone` und `color: Colors.blueGrey.shade900`- (https://materialpalette.com)
-    * Ein `SizedBox` mit `width: 10.0`
-    * Ein `Text` Widget mit der Telefonnummer
+    * Ein `SizedBox` mit `width: 10.0`.
+    * Ein `Text` Widget mit der Telefonnummer.
     * Style den `Text` Widget wie folgt:
       * `color: Colors.blueGrey.shade900`
       * `fontSize: 20.0`
       * `fontFamily: Varela`
-    * Ändere die Containerfarbe auf `Colors.white`
-    * Setzte das `margin` auf `10.0` im vertikalen und '25.0' im horizontalen Bereich
-    * Setzte das Padding des Container-Widgets auf `10.0` rundherum
-    * Erstelle einen Zweiten Container mit den gleichen Eigenschaften wie der erste, welcher deine E-Mail Adresse enthält und das passende Icon verwendet
+    * Ändere die Containerfarbe auf `Colors.white`.
+    * Setzte das `margin` auf `10.0` im vertikalen und `25.0` im horizontalen Bereich.
+    * Setzte das `padding` des Container-Widgets auf `10.0` rundherum.
+    * Erstelle einen Zweiten Container mit den gleichen Eigenschaften wie der erste, welcher deine E-Mail Adresse enthält und das passende Icon verwendet.
 
 <details>
   <summary>Code</summary>
@@ -867,9 +880,9 @@ class BCPage extends StatelessWidget {
 | [`Card`](https://api.flutter.dev/flutter/material/Card-class.html)       | Ein Material Design-Karten-Widget, das verwendet wird, um verwandte Informationen in einer abgerundeten, erhöhten Box anzuzeigen. |
 
 
-* Tausche die `Container` für die Telefonnummer und Email gegen ein `Card` Widget aus
+* Tausche die `Container` für die Telefonnummer und Email gegen ein `Card` Widget aus.
 * Füge für den Inhalt der Card-Widgets ein `Padding` als parent hinzu.
-* Setze das `padding`auf `EdgeInsets.all(20.0)`
+* Setze das `padding` auf `EdgeInsets.all(20.0)`.
 
 
 <details>
@@ -895,11 +908,11 @@ class BCPage extends StatelessWidget {
         body: SafeArea(
           child: Column(
             children: [
-              // Unser Avatar
+              // Das Avatar
               CircleAvatar(
                   foregroundImage: AssetImage('assets/images/avatar_1.png'),
                   radius: 50.0),
-              // Unser Name
+              // Der Name
               Text(
                 'Kim Smith',
                 style: TextStyle(
@@ -908,7 +921,7 @@ class BCPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Pacifico'),
               ),
-              // Unser Job
+              // Der Job
               Text(
                 'KEY ACCOUNT MANAGER',
                 style: TextStyle(
@@ -919,7 +932,7 @@ class BCPage extends StatelessWidget {
                   letterSpacing: 2.5,
                 ),
               ),
-              // Container für unsere Telefonnummer
+              // Container für die Telefonnummer
               Card(
                 color: Colors.white,
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
@@ -941,7 +954,7 @@ class BCPage extends StatelessWidget {
                   ),
                 ),
               ),
-              // Container für unsere E-Mail
+              // Container für die E-Mail
               Card(
                 color: Colors.white,
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
@@ -986,7 +999,7 @@ class BCPage extends StatelessWidget {
 * Tausche die `Row` für die Telefonnummer und Email gegen ein `ListTile` Widget aus
 * Entferne die `Padding` Widgets
 * Zentriere den Inhalt der `Column`
-* Füger eine `SizedBox` zwischen dem Job-Title und der Telefonnummer ein. Sie soll 20.0 Pixel hoch sein.
+* Füge eine `SizedBox` zwischen dem Job-Title und der Telefonnummer ein. Sie soll 20.0 Pixel hoch sein.
 * Füge einen `Divider` in die `SizedBox` als Child ein. Der Divider soll die Farbe `Colors.blueGrey.shade900` haben.
 
 
@@ -1014,11 +1027,11 @@ class BCPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Unser Avatar
+              // Das Avatar
               CircleAvatar(
                   foregroundImage: AssetImage('assets/images/avatar_1.png'),
                   radius: 50.0),
-              // Unser Name
+              // Der Name
               Text(
                 'Kim Smith',
                 style: TextStyle(
@@ -1027,7 +1040,7 @@ class BCPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Pacifico'),
               ),
-              // Unser Job
+              // Der Job
               Text(
                 'KEY ACCOUNT MANAGER',
                 style: TextStyle(
@@ -1046,7 +1059,7 @@ class BCPage extends StatelessWidget {
                   color: Colors.blueGrey.shade100,
                 ),
               ),
-              // Container für unsere Telefonnummer
+              // Container für die Telefonnummer
               Card(
                 color: Colors.white,
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
@@ -1061,7 +1074,7 @@ class BCPage extends StatelessWidget {
                   ),
                 ),
               ),
-              // Container für unsere E-Mail
+              // Container für die E-Mail
               Card(
                 color: Colors.white,
                 margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
@@ -1087,41 +1100,4 @@ class BCPage extends StatelessWidget {
 }
 ```
 
-</details>
-
------
-
-### Blank App
-
-<details>
-  <summary>Code</summary>
-  
-```dart
-import 'package:flutter/material.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MainPage(),
-    );
-  }
-}
-
-class MainPage extends StatefulWidget {
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-
-    @override
-    Widget build(BuildContext context) {
-        return Scaffold();
-    }
-}
-```
 </details>
