@@ -624,3 +624,98 @@ class _FeedMePageState extends State<FeedMePage> {
 | Expanded      | [Expanded Docs](https://api.flutter.dev/flutter/widgets/Expanded-class.html) |
 | ClipRRect     | [ClipRRect Docs](https://api.flutter.dev/flutter/widgets/ClipRRect-class.html) |
 | TextButton    | [TextButton Docs](https://api.flutter.dev/flutter/material/TextButton-class.html) |
+
+
+## Challenge: Schreibe die App "Holiday Inc."
+
+Erstelle eine Flutter-App namens "Holiday Inc.", die die Nutzer:in zufällige Urlaubsangebote zeigt. Die App sollte den unten gezeigten Code als Basis verwenden.
+
+**Anforderungen:**
+
+1. Die AppBar hat den Titel "Holiday Inc.".
+   - Der Text in der AppBar hat folgende Eigenschaften:
+      - Farbe: weiß
+      - Schriftgröße: 24.0
+      - Schriftfamilie: Pacifico
+      - Schriftstärke: Fett
+      - Der Text soll sich in einem Center-Widget befinden um mittig angezeigt zu werden.
+2. Der Body sollte mindestens wie folgt aussehen:
+   - Eine SafeArea
+   - Ein Scaffold in der SafeArea
+   - Der `body` des `Scaffold`beginnt mit einem `Padding` von 16.0
+   - Das `Padding`-Widget enthält ein `Column`-Widget
+   - Das `Column`-Widget enthält ein `Text`-Widget mit dem Text "Verreise 2 Wochen für nur 2999€". Wobei die Zahlen zufällig generiert werden.
+      - Der Text hat folgende Eigenschaften:
+         - Farbe: weiß
+         - Schriftgröße: 16.0
+         - Schriftstärke: Fett
+   - Das `Column`-Widget enthält auch ein `Expanded`-Widget:
+      - Das `Expanded`-Widget enthält ein `Padding`-Widget mit 8.0
+      - Das `Padding`-Widget enthält ein `ClipRRect`-Widget, welches einen 16.0 großen Radius hat
+      - Das `ClipRRect`-Widget enthält ein `Image`-Widget
+         - Das `Image`-Widget zeigt ein zufälliges Bild aus den fünf Bildern im Ordner `assets/images/`
+   - Zuletzt enthält das `Column`-Widget ein `TextButton`-Widget mit dem `Text` "Jetzt Angebot finden"
+      - Der TextButton ist wie folgt aufgebau:
+         - `TextButton` hat als Child einen Container mit folgenden Eigenschaften:
+            - Breite: double.infinity
+            - Farbe: weiß
+            - Dekoration: BoxDecoration
+               - Border Radius: 32.0
+               - Farbe: `Theme.of(context).colorScheme.secondary`
+            - Padding: 16.0
+            - Child: `Center`-Widget
+               - `Center`-Widget hat als Child ein `Text`-Widget mit dem Text "Jetzt Angebot finden"
+                  - Der Text hat folgende Eigenschaften:
+                     - Schriftgröße: 16.0
+                     - Schriftstärke: Fett
+                     - Schriftfarbe: weiß
+2. Beim Klicken auf den "Jetzt Angebot finden" Button sollte die App ein zufälliges Angebot für einen Urlaub generieren und anzeigen. Das Angebot sollte aus:
+   - der Dauer des Urlaubs (mindestens zwei Wochen)
+   - der Urlaubsdestination (eines der fünf Bilder)
+   - und den Kosten für den Urlaub (1000 € - 2999 €) bestehen.
+3. Verwende dein bisher erlangtes Wissen, um die App zu gestalten.
+
+**Gegebener Code:**
+
+```dart
+import 'package:flutter/material.dart';
+import 'dart:math';
+
+void main() {
+  runApp(const HolidayIncApp());
+}
+
+class HolidayIncApp extends StatelessWidget {
+  const HolidayIncApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Holiday Inc.',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(secondary: const Color(0xFFFFA726)),
+      ),
+      home: const HolidayPage(),
+    );
+  }
+}
+
+class HolidayPage extends StatefulWidget {
+  const HolidayPage({super.key});
+
+  @override
+  State<HolidayPage> createState() => _HolidayPageState();
+}
+
+class _HolidayPageState extends State<HolidayPage> {
+  
+  // Erstelle hier die Variablen für die Dauer des Urlaubs, die Urlaubsdestination und die Kosten für den Urlaub.
+  
+  // Erstelle hier die Funktion, die die Variablen mit zufälligen Werten befüllt.
+
+  @override
+  Widget build(BuildContext context) {
+    // Erstelle hier das UI der App. Ersetze dafür Placeholder() mit dem richtigen Widget.
+    return Placeholder();
+  }
+}
