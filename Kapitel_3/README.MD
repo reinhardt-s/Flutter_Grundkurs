@@ -660,33 +660,31 @@ Die Funktion soll folgende Aufgaben erfüllen:
   - Alle 12 Heuhaufen wieder mit dem Bild "assets/images/haystack.png" befüllen.
   - Eine neue Position für das `Mighty Chicken` generieren.
 
-<details>
-<summary>Lösung<summary>
+  <details>
+  <summary>Code</summary>
 
-```dart
-    void _resetGame() {
-        setState(() {
-            _chickenPosition = Random().nextInt(12);
-            _hayStacks = [
-                'assets/images/haystack.png',
-                'assets/images/haystack.png',
-                'assets/images/haystack.png',
-                'assets/images/haystack.png',
-                'assets/images/haystack.png',
-                'assets/images/haystack.png',
-                'assets/images/haystack.png',
-                'assets/images/haystack.png',
-                'assets/images/haystack.png',
-                'assets/images/haystack.png',
-                'assets/images/haystack.png',
-                'assets/images/haystack.png',
-            ];
-        });
-    }
-```
-
+  ```dart
+      void _resetGame() {
+          setState(() {
+              _chickenPosition = Random().nextInt(12);
+              _hayStacks = [
+                  'assets/images/haystack.png',
+                  'assets/images/haystack.png',
+                  'assets/images/haystack.png',
+                  'assets/images/haystack.png',
+                  'assets/images/haystack.png',
+                  'assets/images/haystack.png',
+                  'assets/images/haystack.png',
+                  'assets/images/haystack.png',
+                  'assets/images/haystack.png',
+                  'assets/images/haystack.png',
+                  'assets/images/haystack.png',
+                  'assets/images/haystack.png',
+              ];
+          });
+      }
+  ```
 </details>
-
 
 Um die Funktion `_resetGame()` beim Starten des Spiels aufzurufen, können wir die vorhandene Funktion `initState()` überschreiben. Zum Überschreiben einer Funktion verwenden wir die `@override` Annotation.
 
@@ -756,7 +754,7 @@ player.play('assets/sounds/chicken.mp3');
 Beachte: `AudioPlayer` sucht automatisch ab der Ordner-Ebene `assets` nach den Dateien.
 
 <details>
-<summary>Lösung<summary>
+<summary>Lösung</summary>
 
 ```dart
 void _revealHayStack(int hayStack) {
@@ -773,7 +771,7 @@ void _revealHayStack(int hayStack) {
       }
     });
   }
-``` 
+```
 
 </details>
 
