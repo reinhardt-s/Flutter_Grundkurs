@@ -43,11 +43,10 @@
 
 
 ## Was wir programmieren werden
-* MyPastries - Eine einfache App mit einem Hintergrundbild
-![](my_pastries.png)  
 
-* MyCard - Eine App mit einem Profilbild und Text  
-![](my_card.png)
+| MyPastries - Eine einfache App mit einem Hintergrundbild | MyCard - Eine App mit einem Profilbild und Text  |
+|---------------------------------------------------------|---------------------------------------------------------|
+|![](my_pastries.png)  | ![](my_card.png)  |
 
 
 

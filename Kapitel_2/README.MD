@@ -9,9 +9,10 @@
 
 
 ## Was wir programmieren werden
-* Feed Me eine App, die uns hilft, uns für ein Restaurant zu entscheiden  
-![](feed_me_app.png)  
-![](holiday_inc_app.png)  
+
+| Feed Me eine App, die uns hilft, uns für ein Restaurant zu entscheiden | Holiday Inc. - Findet ein Reiseziel, Reisedauer und den passenden Preis dazu. Per Zufall.  |
+|---------------------------------------------------------|---------------------------------------------------------|
+|![](feed_me_app.png)    | ![](holiday_inc_app.png)    |
 
 
 ## Feed Me 1.0

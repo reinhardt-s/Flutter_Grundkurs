@@ -16,12 +16,13 @@
 
 ## Was wir programmieren
 
- * Mighty Chicken
+| Mighty Chicken - Ein Spiel in dem man das Mighty Chicken in Heuhaufen finden muss  |
+|------------------------------------------------------------------------------------|
+|![](mighty_chicken_app.png)   |
 
-   ![Mighty Chicken](mighty_chicken_app.png)  
 
-    Bei Mighty Chicken geht es darum das "Mighty Chicken" in einem der Heuhaufen zu finden.  
-    Sobald die Nutzer:in einen Heuhaufen anklickt, wird angezeigt, ob das Mighty Chicken sich dort versteckt hielt und ein passender Ton abgespielt.  
+  Bei Mighty Chicken geht es darum das "Mighty Chicken" in einem der Heuhaufen zu finden.  
+  Sobald die Spieler:in einen Heuhaufen anklickt, wird angezeigt, ob das Mighty Chicken sich dort versteckt hielt und ein passender Ton abgespielt.  
 
 
 ## Mighty Chicken - Step 1
@@ -241,6 +242,15 @@ Um ein Element an einer bestimmten Stelle zu entfernen, können wir die `removeA
 ```dart
 einkaufsliste.removeAt(1);
 ```
+
+Um den Index eines Elements zu erhalten, können wir die `indexOf()`-Methode verwenden:
+
+```dart
+print(einkaufsliste.indexOf('Eier'));
+```
+
+Mehr zu Listen findest du in der [Dart Dokumentation](https://dart.dev/guides/language/language-tour#lists).
+
 
 Für die Bilder der Heuhaufen können wir nun eine Liste anlegen:
 
