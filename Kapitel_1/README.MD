@@ -1,7 +1,6 @@
 # Kapitel 1 - Einführung in Flutter / Erste Designs
 
 ## Was wir lernen werden
-  * Was ist Flutter?
   * Installation
     * https://docs.flutter.dev/get-started/install/windows
     * Android Studio
@@ -24,6 +23,22 @@
     * Stateless Widget => https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html
     * Stateful Widget => https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html
 
+    ## Was ist Flutter?
+    * Flutter ist ein Framework für die Entwicklung von Apps für Android und iOS
+    * Flutter ist Open Source
+    * Flutter passt sich an den Screensize an
+    * Liefert Design- und Layout-Widgets: https://docs.flutter.dev/development/ui/widgets/material
+    * Zeichnet auf Canvas
+    * Hot Reload - Änderungen werden sofort angezeigt
+    * Hot Restart - Neustart der App
+
+    ## Design
+    * Material-Widgets
+    * Material-Icons
+    * Styling von Widgets
+    * Eigene Fonts
+    * Eigene Bilder
+
 
 
 
@@ -35,22 +50,8 @@
 ![](my_card.png)
 
 
-## Was wir gelernt haben
-### Was ist Flutter?
- * Flutter ist ein Framework für die Entwicklung von Apps für Android und iOS
- * Flutter ist Open Source
- * Flutter passt sich an den Screensize an
- * Liefert Design- und Layout-Widgets: https://docs.flutter.dev/development/ui/widgets/material
- * Zeichnet auf Canvas
- * Hot Reload - Änderungen werden sofort angezeigt
- * Hot Restart - Neustart der App
 
- ### Design
- * Material-Widgets
- * Material-Icons
- * Styling von Widgets
- * Eigene Fonts
- * Eigene Bilder
+
 -----
 
 ## Erste App - Ausgangslage
