@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'question.dart';
+import 'quiz_master.dart';
 
 void main() {
   runApp(const AfaikApp());
@@ -29,24 +29,16 @@ class AfaikPage extends StatefulWidget {
 }
 
 class _AfaikPageState extends State<AfaikPage> {
-
-  int _currentQuestionIndex = 0;
   List<Widget> _answers = [];
+  QuizMaster _quizMaster = QuizMaster();
 
-  List<Question> _questions = [
-    Question(q: 'AFAIK steht für "As far as I know" und bedeutet "soweit ich weiß".', a: true),
-    Question(q: 'Kassel ist die Waschbärhauptstadt Europas.', a: true),
-    Question(q: 'In der Nordsee gibt es keine Haie.', a: false),
-    Question(q: 'Durchschnittlich isst der Mensch acht Spinnen im Schlaf.', a: false),
-    Question(q: 'Hühner können nicht fliegen.', a: false),
-    Question(q: 'Löwen springen bis zu 10 Meter weit.', a: true),
-  ];
+
 
 
 
   void _checkAnswer(bool answer) {
     setState(() {
-      if (answer == _questions[_currentQuestionIndex].questionAnswer) {
+      if (answer == _quizMaster.getQuestionAnswer()) {
         _answers.add(
           Icon(
             Icons.check,
@@ -61,7 +53,7 @@ class _AfaikPageState extends State<AfaikPage> {
           ),
         );
       }
-      _currentQuestionIndex++;
+      _quizMaster.nextQuestion();
     });
   }
 
@@ -97,7 +89,7 @@ class _AfaikPageState extends State<AfaikPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 32.0),
                   child: Text(
                     textAlign: TextAlign.center,
-                    _questions[_currentQuestionIndex].questionText,
+                    _quizMaster.getQuestionText(),
                     style: TextStyle(color: Colors.white, fontSize: 24),
                   ),
                 ),

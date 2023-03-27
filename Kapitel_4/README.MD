@@ -918,3 +918,558 @@ class _AfaikPageState extends State<AfaikPage> {
 ```
 </details>
 
+### Klassen II
+
+* Kopiere folgenden Code in ein neues DartPad:
+  
+  <details>
+  <summary>Code</summary>
+
+  ```dart
+  // Erstellen der Klasse Auto
+  // Ein Auto hat Eigentschaften wie: Farbe, Anzahl der Türen, Max. Geschwindigkeit
+  // Es hat ebenfall Fähigkeiten wie: Beschleunigung, Richtung wechseln
+
+  // Deklariert die Klasse
+  class Car{
+    
+    // Eigenschaften (Properties / Fields) des Autos
+    String _color = 'weiß';
+    String _name = 'Auto';
+    int _doors = 3;
+    int _currentSpeed = 50;
+    
+    int _trunkWeight = 0;
+    int _passengers = 0;
+    
+    // Konstruktor der Klasse.
+    // Wird aufgerufen um eine neue Instanz (ein neues Objekt) vom Typ Auto anzulegen
+    // Sie heißen, wie de Klasse, können nach belieben Parameter aufnehmen, haben jedoch keinen Rückgabewert.
+    Car(int doors, String color) {
+      _doors = doors;
+      _color = color;
+    }
+    
+    // Konstruktoren können benamt werden. 
+    // Das benamen erfolgt durch das Anhängen eines Punktes und des Namens
+    Car.d(int doors) {
+      _doors = doors;
+    }
+    
+    // Das Fragezeichen gibt an, dass dieser Parameter optional ist
+    // Da er keinen Standardwert hat, ist der Parameter "leer", also null
+    // Wenn keiner an den Konstruktor übergeben wird.
+    Car.name(String color, int doors, {String? name}){
+      _color = color;
+      _doors = doors;
+      
+      // Diese Zeile sorg für einen Fehler, da wir noch nicht geprüft haben,
+      // ob der Wert in name evtl null ist.
+      //_name = name;
+      
+      // Bin ich mir sicher, dass der Wert nicht null sein kann,
+      // kann ich die Zuweisung erzwingen
+      //_name = name!;
+      
+      // Weil wir prüfen, ob der Wert null ist, können wir ihn normal verwenden.
+      if ( name != null) {
+        _name = name;
+        print('Mein Name ist $_name');
+      } else {
+        print('Mir wurde kein Name gegeben.');
+      }
+    }
+    
+    // Fähigkeiten des Autos (Methods)
+    void getStatus() {
+      print('Das Auto hat $_doors Türen, ist $_color und fährt $_currentSpeed km/h.');
+    }
+    
+    // Eine Funktion mit dem Parameter passenger
+    void addPassengerWithLuggage(int passengers, int luggage){
+      _passengers += passengers;
+      _trunkWeight += luggage;
+    }
+    
+    // Eine Funktion mit dem benamten Parameter weight, welche standardmäßig auf 0 gesetzt ist
+    void removeFromTrunk({int weight = 10}){
+      _trunkWeight -= weight;
+    }
+    
+    // Eine Funktion mit dem benamten Parameter weight, dessen Angabe verpflichtend ist.
+    void addToTrunk({required int weight}) {
+      _trunkWeight += weight;
+    }
+    
+    // Eine Funktion die die Anzahl an Passagieren als Wert zurück gibt;
+    int getPassengerCount() {
+      // return wird benutzt um anzugeben, was die Funktion zurückgeben soll.
+      return _passengers;
+    }
+    
+    void getWeight() {
+      print('Im Kofferraum befinden sich $_trunkWeight kg Gepäck');
+    }
+  }
+
+  void main() {
+    Car volvo = Car(5, 'schwarz');
+    volvo.getStatus();
+    
+    Car kia = Car.d(2);
+    kia.getStatus();
+    
+    print(kia._doors);
+    kia.getWeight();
+    
+    
+    // In der Funktionsdeklaration wurde passengers als positional Parameter angegeben
+    // Das heißt, die Werte werden in der gleichen Reihenfolge zugewiesen, wie sie übergeben
+    // werden.
+    // Wir fügen also zwei Passagiere mit insg. 50 kg Gepäck hinzu.
+    kia.addPassengerWithLuggage(2, 50);
+    kia.getWeight();
+    print(kia.getPassengerCount());
+    
+    
+    // In den geschweiften Klammern, der Funktionsdeklaration
+    // stehen Parameter, welche mit Namen angesprochen werden
+    // required gibt an, dass dieser wird zwingend übergeben werden muss
+    kia.addToTrunk(weight:20);
+    kia.getWeight();
+    
+    // Werte in geschweiften Klammer können einen Standardwert haben.
+    // Wenn dieser Wert nicht bei Funktionsaufruf gesetzt wird, wird der Standardwert verwendet.
+    // Entfernt 20 kg aus dem Kofferraum
+    kia.removeFromTrunk();
+    kia.getWeight();
+    
+    kia.removeFromTrunk(weight: 5);
+    kia.getWeight();
+    
+    Car bmw = Car.name('blau', 5);
+    Car fiat = Car.name('blau', 5, name: 'Fiat 500');
+  }
+  ```
+
+  </details>
+
+
+Wir besprechen den Code zusammen.
+
+
+### Abstraktion
+
+Um die Komplexität aus unserer Anwendung zu halten, lagern wir Code der logisch zusammen gehört in Klassen aus.
+
+* Erstelle in einer neuen Datei `quiz_master.dart` eine neue Klasse `QuizMaster`.
+* Schneide die Liste mit den Fragen aus der `main.dart` und füge sie in die Klasse `QuizMaster` ein.
+  * Dir sollte nun einiges rot markiert sein. Das liegt daran, dass wir die Klasse `Question` noch nicht importiert haben. Füge die import-Zeile noch hinzu.
+
+Dein Code sollte nun so aussehen:
+
+<details>
+<summary>Code: `quiz_master.dart`</summary>
+
+```dart
+import 'question.dart';
+
+class QuizMaster {
+  List<Question> questions = [
+    Question(q: 'AFAIK steht für "As far as I know" und bedeutet "soweit ich weiß".', a: true),
+    Question(q: 'Kassel ist die Waschbärenhauptstadt Europas.', a: true),
+    Question(q: 'In der Nordsee gibt es keine Haie.', a: false),
+    Question(q: 'Durchschnittlich isst der Mensch acht Spinnen im Schlaf.', a: false),
+    Question(q: 'Hühner können nicht fliegen.', a: false),
+    Question(q: 'Löwen springen bis zu 10 Meter weit.', a: true),
+    Question(q: 'Es ist unmöglich zu summeen, während man sich die Nase zu hält.', a: true),
+    Question(q: 'Oktopoden haben drei Herzen.', a: true),
+    Question(q: 'In Münster gibt es mehr Fahrräder als Einwohner.', a: true),
+    Question(q: 'Waschbären können nicht schwimmen.', a: false),
+    Question(q: 'Die größte Insel der Welt ist Neuguinea.', a: false),
+  ];
+}
+```
+</details>
+
+Durch das Löschen der Zeilen in der `main.dart` haben wir dort einige Fehler erzeugt, die wir nun korrigieren müssen.
+
+* Lösche den Import der Klasse `Question` aus der `main.dart`.
+* Importiere die Klasse `QuizMaster` in der `main.dart` und erstelle ein Objekt der Klasse.
+* Korrifiere die folgenden Zeile so, dass Sie nun die Liste der Fragen aus der Klasse `QuizMaster` beziehen.
+  ```dart
+    ...
+    if (answer == _questions[_currentQuestionIndex].questionAnswer) {
+    ...
+    _questions[_currentQuestionIndex].questionText,
+    ...
+  ```
+
+### Einkapselung
+
+In einem gut organisiertem Restaurant, gibt es verschiedene Mitarbteiter, die verschiedene Aufgaben erfüllen.
+Die Kellner:in nimmt die Bestellung auf und die Köch:in bereitet das Essen zu.
+Auf diese Weise kann sich jede Person auf ihre Aufgabe konzentrieren und muss sich nicht mit den Aufgaben der anderen beschäftigen.
+
+In der Programmierung ist es ähnlich. Wir wollen, dass unsere Klassen nur die Aufgaben erfüllen, die sie erfüllen sollen.
+
+Unsere Datei `main.dart` ist zur Zeit noch in der Lage, die Fragen zu verändern. 
+Das ist jedoch nicht der Job der `main.dart`.
+Wir müssen also eine Wand zwischen den beiden Klassen schaffen und den Zugriff auf die Fragen, gezielt nach Bedürfnis steuern.
+
+Wir fangen damit an, das wir die Liste der Fragen `private` machen. Das heißt, dass wir die Liste nur innerhalb der Klasse `QuizMaster` verwenden können.
+Die erreichen wir durch das Hinzufügen eines Unterstrichs vor den Namen der Liste.
+
+<details>
+<summary>Code</summary>
+
+  ```dart
+    List<Question> _questions = [
+  ```
+</details>
+
+In der `main.dart` können wir nun nicht mehr auf die Liste der Fragen zugreifen, was uns Android Studio durch das rot markieren der Zeilen anzeigt.
+Wir müssen also eine Methode schreiben, die uns die Fragen zurück gibt.
+
+Was wir genau wollen, ist eine Methode die uns direkt eine Frage zurück gibt.
+
+* Erstelle drei neue Methoden:
+  * `getQuestionText()` - Gibt den Text der Frage zurück.
+  * `getQuestionAnswer()` - Gibt die Antwort der Frage zurück.
+  * `nextQuestion` - Setzt den Index der aktuellen Frage auf die nächste Frage.
+
+* Wir brauchen nun auch die Variable `_currentQuestionIndex` in der `main.dart` nicht mehr.
+* Passe nun die `main.dart` so an, dass sie die Methoden der Klasse `QuizMaster` nutzt.
+
+<details>
+<summary>Lösung - Code: `main.dart`</summary>
+
+```dart
+import 'package:flutter/material.dart';
+import 'quiz_master.dart';
+
+void main() {
+  runApp(const AfaikApp());
+}
+
+class AfaikApp extends StatelessWidget {
+  const AfaikApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.indigo,
+      ),
+      home: const AfaikPage(),
+    );
+  }
+}
+
+class AfaikPage extends StatefulWidget {
+  const AfaikPage({super.key});
+
+  @override
+  State<AfaikPage> createState() => _AfaikPageState();
+}
+
+class _AfaikPageState extends State<AfaikPage> {
+  List<Widget> _answers = [];
+  QuizMaster _quizMaster = QuizMaster();
+
+
+
+
+
+  void _checkAnswer(bool answer) {
+    setState(() {
+      if (answer == _quizMaster.getQuestionAnswer()) {
+        _answers.add(
+          Icon(
+            Icons.check,
+            color: Colors.green,
+          ),
+        );
+      } else {
+        _answers.add(
+          Icon(
+            Icons.close,
+            color: Colors.red,
+          ),
+        );
+      }
+      _quizMaster.nextQuestion();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blueGrey[900],
+      appBar: AppBar(
+        title: Text('AFAIK'),
+      ),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: _answers,
+                ),
+              ),
+            ),
+            Divider(
+              thickness: 2,
+            ),
+            Expanded(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    _quizMaster.getQuestionText(),
+                    style: TextStyle(color: Colors.white, fontSize: 24),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 50),
+              child: Divider(
+                thickness: 2,
+              ),
+            ),
+            // Stimmt Button
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0, left: 16.0, right: 16.0),
+              child: TextButton(
+                onPressed: () => _checkAnswer(true),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    color: Colors.green,
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: Center(
+                    child: Text(
+                      'Stimmt',
+                      style:
+                          TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            // Stimmt nicht Button
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16.0, left: 16.0, right: 16.0),
+              child: TextButton(
+                onPressed: () => _checkAnswer(false),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    color: Colors.red,
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 20),
+                  child: Center(
+                    child: Text(
+                      'Stimmt nicht',
+                      style:
+                          TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+</details>
+
+<details>
+<summary>Lösung - Code: `quiz_master.dart`</summary>
+
+```dart
+import 'question.dart';
+
+class QuizMaster {
+  List<Question> _questions = [
+    Question(
+        q: 'AFAIK steht für "As far as I know" und bedeutet "soweit ich weiß".',
+        a: true),
+    Question(q: 'Kassel ist die Waschbärenhauptstadt Europas.', a: true),
+    Question(q: 'In der Nordsee gibt es keine Haie.', a: false),
+    Question(
+        q: 'Durchschnittlich isst der Mensch acht Spinnen im Schlaf.',
+        a: false),
+    Question(q: 'Hühner können nicht fliegen.', a: false),
+    Question(q: 'Löwen springen bis zu 10 Meter weit.', a: true),
+    Question(
+        q: 'Es ist unmöglich zu summeen, während man sich die Nase zu hält.',
+        a: true),
+    Question(q: 'Oktopoden haben drei Herzen.', a: true),
+    Question(q: 'In Münster gibt es mehr Fahrräder als Einwohner.', a: true),
+    Question(q: 'Waschbären können nicht schwimmen.', a: false),
+    Question(q: 'Die größte Insel der Welt ist Neuguinea.', a: false),
+  ];
+
+  int _currentQuestionIndex = 0;
+
+  String getQuestionText() {
+    return _questions[_currentQuestionIndex].questionText;
+  }
+
+  bool getQuestionAnswer() {
+    return _questions[_currentQuestionIndex].questionAnswer;
+  }
+
+  void nextQuestion() {
+      _currentQuestionIndex++;
+  }
+}
+```
+</details>
+
+* Schreibe die Methode `nextQuestion()` so um, dass sie die Variable `_currentQuestionIndex` auf den Index der nächsten Frage setzt. Wenn die aktuelle Frage die letzte Frage ist, soll die Variable auf den Index der ersten Frage gesetzt werden.
+  * Tipp: Du kannst die Länge der Liste mit der Eigenschaft `length` abfragen.
+  * Verwende if-else-Statements, um zu prüfen, ob die aktuelle Frage die letzte Frage ist.
+
+<details>
+<summary>Lösung</summary>
+
+```dart
+void nextQuestion() {
+  if (_currentQuestionIndex < _questions.length - 1) {
+    _currentQuestionIndex++;
+  } else {
+    _currentQuestionIndex = 0;
+  }
+}
+```
+
+</details>
+
+### Vererbung
+Vererbung ist ein grundlegendes Konzept der objektorientierten Programmierung (OOP), 
+das es erlaubt, Code wiederverwendbar, modular und leicht verständlich zu gestalten. 
+Es ermöglicht, dass eine Klasse (ein Bauplan für Objekte) die Eigenschaften und Methoden einer anderen Klasse erbt, 
+ohne den Code dafür neu schreiben zu müssen. Die Hauptakteure in diesem Prozess sind die Basisklasse 
+(auch als "Superklasse" bezeichnet) und die abgeleitete Klasse (auch als "Subklasse" bezeichnet).
+
+Gehe wieder auf [dartpad.dev](https://dartpad.dev) und kopiere den folgenden Code in das Textfeld:
+
+<details>
+<summary>Code</summary>
+
+```dart
+class Vehicle {
+  int maxSpeed = 80;
+  String drive = 'Verbrenner';
+  
+  void accelerate() {
+    print('Trete auf das Gas-Pedal');
+  }
+}
+
+class ECar extends Vehicle {
+  
+  String drive = 'E-Motor';
+  
+  void charge() {
+    print('Lade Batterie auf...');
+  }
+}
+
+
+void main() {
+  Vehicle car = Vehicle();
+  print(car.maxSpeed);
+  print(car.drive);
+  car.accelerate();
+
+  ECar ecar = ECar();
+  print(ecar.maxSpeed);
+  print(ecar.drive);
+  ecar.accelerate();
+  ecar.charge();  
+}
+```
+</details>
+
+Wir besprechen den Code gemeinsam.
+
+### Polymorphie
+Polymorphie ist ein weiteres Schlüsselkonzept der objektorientierten Programmierung (OOP). 
+Es erlaubt, dass Methoden in abgeleiteten Klassen die gleiche Signatur wie Methoden in der Basisklasse haben, 
+aber unterschiedliche Implementierungen aufweisen. Polymorphie ermöglicht es, dass eine Methode auf 
+erschiedene Arten implementiert wird, je nachdem, welches Objekt sie aufruft. Dadurch wird der Code flexibler 
+und leichter erweiterbar.
+
+Gehe wieder auf [dartpad.dev](https://dartpad.dev) und ergänze die Klasse Quad. Ergänze ebenfalls die Aufrufe, analog `car`.
+
+<details>
+<summary>Code</summary>
+
+```dart
+class Quad extends Vehicle {
+    
+  @override
+  void accelerate() {
+    print('Drehe am Hebel');
+  }
+
+}
+
+//...
+
+Quad quad = Quad();
+print(quad.maxSpeed);
+print(quad.drive);
+quad.accelerate();
+
+```
+</details>
+
+Wir besprechen den Code gemeinsam.
+
+Durch `@override` wird die Methode der Basisklasse überschrieben.
+
+Ergänze den Code um die Klasse SDCar, erzeuge ein SDCar-Objekt und rufe die Methode `accelerate()` auf:
+
+<details>
+<summary>Code</summary>
+
+```dart
+  class SDCar extends Vehicle {
+  String destination = 'Nach Hause';
+  
+  SDCar(String userDestination){
+    destination = userDestination;
+  }
+  
+  @override
+  void accelerate() {
+    super.accelerate();
+    print('Beschleunige Richtung $destination');
+  }
+}
+//...
+  SDCar sdc = SDCar('Hamburg');
+  sdc.accelerate();
+```
+</details>
+
+Mit `super` kann auf die Methode der Basisklasse zugegriffen werden.
