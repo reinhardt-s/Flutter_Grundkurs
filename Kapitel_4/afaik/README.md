@@ -1,16 +1,17 @@
-# afaik
+# Flutter AFAIK Quiz App
 
-A new Flutter project.
+![AFAIK App](../afaik_app.png)
 
-## Getting Started
+Diese Flutter App besteht aus einer Quiz-Anwendung namens "AFAIK" (As Far As I Know). Es verwendet Material Design und zeigt multiple-choice-Fragen, bei denen der Benutzer zwischen "Stimmt" (wahr) und "Stimmt nicht" (falsch) wählen kann. Die Antworten des Benutzers werden am oberen Bildschirmrand angezeigt.
 
-This project is a starting point for a Flutter application.
+## Hauptbestandteile der App
 
-A few resources to get you started if this is your first Flutter project:
+- **AfaikApp**: Ein `StatelessWidget`, das als Hauptanwendung dient.
+- **AfaikPage**: Ein `StatefulWidget`, das die Hauptseite der App darstellt.
+- **_AfaikPageState**: Der Zustand von `AfaikPage`. Es verwaltet die Antworten und den `QuizMaster`.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Logik
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Die App verwendet die `QuizMaster`-Klasse, um Fragen und Antworten zu verwalten.
+- Die Methode `_checkAnswer` überprüft die vom Benutzer ausgewählte Antwort und fügt entweder ein grünes Häkchen (wenn die Antwort korrekt ist) oder ein rotes X (wenn die Antwort falsch ist) zur Antwortliste hinzu.
+- Die Methode `nextQuestion` von `QuizMaster` wird aufgerufen, um zur nächsten Frage zu

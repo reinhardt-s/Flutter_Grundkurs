@@ -37,7 +37,7 @@ class AfaikApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'AFAIK',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
@@ -141,8 +141,9 @@ class _AfaikPageState extends State<AfaikPage> {
 
 ## AFAIK Step 2 - Antwortübersicht
 
-* Füge über der Frage eine `Row`, sowie einen `Divider` hinzu.
-In der `Row` wollen wir später mit `Icons` anzeigen, ob die Antwort richtig oder falsch war. Gib der Row ein links und rechts ein Padding von 16.0, von oben eines von 8.0.
+* Füge über der Frage eine `Row`, sowie einen `Divider` hinzu.  
+In der `Row` wollen wir später mit `Icons` anzeigen, ob die Antwort richtig oder falsch war.  
+Gib der `Row` links und rechts ein Padding von 16.0, von oben eines von 8.0.
 
 <details>
 <summary>Lösung</summary>
@@ -211,7 +212,7 @@ Das geht, da children eine `List` von `Widget` erwartet.
 </details>
 
 
-* Nun müssen wir nur noch die Icons hinzufügen, wenn die Nutzer:in auf einer der Buttons drückt. Dazu müssen wir die `onPressed` Funktionen der Buttons anpassen:
+* Nun müssen wir nur noch die Icons hinzufügen, wenn die Nutzer:in auf einen der Buttons drückt. Dazu müssen wir die `onPressed` Funktionen der Buttons anpassen:
 
 ```dart
 onPressed: () {
@@ -295,11 +296,10 @@ void main() {
 class AfaikApp extends StatelessWidget {
   const AfaikApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'AFAIK',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
@@ -445,7 +445,7 @@ Die App soll nach dem Start und nach jeder Antwort eine neue Frage anzeigen. Daz
 | Frage | Richtig/Falsch |
 | --- | --- |
 | AFAIK steht für "As far as I know" und bedeutet "soweit ich weiß". | Richtig |
-| Kassel ist die Waschbärhauptstadt Europas. | Richtig |
+| Kassel ist die Waschbärenhauptstadt Europas. | Richtig |
 | In der Nordsee gibt es keine Haie. | Falsch |
 | Durchschnittlich isst der Mensch acht Spinnen im Schlaf. | Falsch |
 | Hühner können nicht fliegen. | Falsch |
@@ -711,7 +711,7 @@ void main() {
   Question q2 = Question(q: 'Mehr als vier Tassen Kaffee am Tag sind tödlich.');
 
   // Verwendet den zweiten Koknstruktor der Klasse Question
-  Question q3 = Question('Flautiere können ihren Atem länger anhalten als Delfine', true);
+  Question q3 = Question('Faultiere können ihren Atem länger anhalten als Delphine', true);
   
   // Ausgabe der Fragen und Antworten
   print(q1.question);
@@ -792,7 +792,7 @@ class _AfaikPageState extends State<AfaikPage> {
 
   List<Question> _questions = [
     Question(q: 'AFAIK steht für "As far as I know" und bedeutet "soweit ich weiß".', a: true),
-    Question(q: 'Kassel ist die Waschbärhauptstadt Europas.', a: true),
+    Question(q: 'Kassel ist die Waschbärenhauptstadt Europas.', a: true),
     Question(q: 'In der Nordsee gibt es keine Haie.', a: false),
     Question(q: 'Durchschnittlich isst der Mensch acht Spinnen im Schlaf.', a: false),
     Question(q: 'Hühner können nicht fliegen.', a: false),
@@ -1467,7 +1467,7 @@ Ergänze den Code um die Klasse SDCar, erzeuge ein SDCar-Objekt und rufe die Met
   }
 }
 //...
-  SDCar sdc = SDCar('Hamburg');
+  SDCar sdc = SDCar('Hamburg');bb
   sdc.accelerate();
 ```
 </details>
