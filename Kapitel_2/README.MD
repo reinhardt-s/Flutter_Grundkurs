@@ -634,17 +634,19 @@ Erstelle eine Flutter-App namens "Holiday Inc.", die die Nutzer:in zufällige Ur
 
 **Anforderungen:**
 
-1. Die AppBar hat den Titel "Holiday Inc.".
-   - Der Text in der AppBar hat folgende Eigenschaften:
-      - Farbe: weiß
-      - Schriftgröße: 24.0
-      - Schriftfamilie: Pacifico
-      - Schriftstärke: Fett
-      - Der Text soll sich in einem Center-Widget befinden um mittig angezeigt zu werden.
-2. Der Body sollte mindestens wie folgt aussehen:
+1. Die build-Methode beginnt mit einem Scaffold.
+  - Das Scaffold hat als Hintergrundfarbe `Colors.blue`.
+  - Die AppBar des Scaffolds hat den Titel "Holiday Inc.".
+    - Die AppBar hat als Hintergrundfarbe `Theme.of(context).colorScheme.secondary`.
+    - Der Text in der AppBar hat folgende Eigenschaften:
+       - Farbe: weiß
+       - Schriftgröße: 24.0
+       - Schriftfamilie: Pacifico
+       - Schriftstärke: Fett
+       - Der Text soll sich in einem Center-Widget befinden um mittig angezeigt zu werden.
+2. Der Body sollte wie folgt aussehen:
    - Eine SafeArea
-   - Ein Scaffold in der SafeArea
-   - Der `body` des `Scaffold`beginnt mit einem `Padding` von 16.0
+   - Das `child` des `Scaffold` beginnt mit einem `Padding` von 16.0
    - Das `Padding`-Widget enthält ein `Column`-Widget
    - Das `Column`-Widget enthält ein `Text`-Widget mit dem Text "Verreise 2 Wochen für nur 2999€". Wobei die Zahlen zufällig generiert werden.
       - Der Text hat folgende Eigenschaften:
