@@ -751,13 +751,13 @@ import 'package:audioplayers/audioplayers.dart';
 Um den Player zu benutzen musst du eine Instanz von `AudioPlayer` erstellen:
 
 ```dart
-AudioPlay player = AudioPlayer();
+AudioPlayer player = AudioPlayer();
 ```
 
 Jetzt kannst `player` benutzen um Audio-Dateien abzuspielen. Dazu gibt es die Funktion `play()`.
 
 ```dart
-player.play('assets/sounds/chicken.mp3');
+player.play(AssetSource('sounds/chicken.mp3'));
 ```
 
 Ändere die Funktion `revealHayStack()` so ab, dass sie den Ton `assets/sounds/chicken.mp3` abspielt, wenn das `Mighty Chicken` gefunden wurde. Andernfalls soll der Ton `assets/sounds/cicada.mp3` abgespielt werden.  
