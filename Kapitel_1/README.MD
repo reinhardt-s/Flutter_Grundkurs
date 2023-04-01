@@ -831,7 +831,7 @@ class BCPage extends StatelessWidget {
                     Icon(Icons.phone, color: Colors.blueGrey.shade900),
                     SizedBox(width: 10.0),
                     Text(
-                      '+49 151 4124 5221',
+                      '+49 800 4000 2000',
                       style: TextStyle(
                           color: Colors.blueGrey.shade900,
                           fontFamily: 'Varela',
@@ -943,7 +943,7 @@ class BCPage extends StatelessWidget {
                       Icon(Icons.phone, color: Colors.blueGrey.shade900),
                       SizedBox(width: 10.0),
                       Text(
-                        '+49 151 4124 5221',
+                        '+49 800 4000 2000',
                         style: TextStyle(
                             color: Colors.blueGrey.shade900,
                             fontFamily: 'Varela',
@@ -1066,7 +1066,7 @@ class BCPage extends StatelessWidget {
                 child: ListTile(
                   leading: Icon(Icons.phone, color: Colors.blueGrey.shade900),
                   title: Text(
-                    '+ 49 151 4124 5221',
+                    '+49 800 4000 2000',
                     style: TextStyle(
                         color: Colors.blueGrey.shade900,
                         fontFamily: 'Varela',
