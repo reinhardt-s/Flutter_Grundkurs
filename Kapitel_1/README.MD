@@ -46,7 +46,7 @@
 
 | MyPastries - Eine einfache App mit einem Hintergrundbild | MyCard - Eine App mit einem Profilbild und Text  |
 |---------------------------------------------------------|---------------------------------------------------------|
-|![](my_pastries.png)  | ![](my_card.png)  |
+| <img src="my_pastries.png" height="450"> | <img src="my_card.png" height="450"> |
 
 
 
