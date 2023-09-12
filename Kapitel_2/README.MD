@@ -12,7 +12,7 @@
 
 | Feed Me eine App, die uns hilft, uns für ein Restaurant zu entscheiden | Holiday Inc. - Findet ein Reiseziel, Reisedauer und den passenden Preis dazu. Per Zufall.  |
 |---------------------------------------------------------|---------------------------------------------------------|
-|![](feed_me_app.png)    | ![](holiday_inc_app.png)    |
+| <img src="feed_me_app.png" height="450">  | <img src="holiday_inc_app.png" height="450">  |
 
 
 ## Feed Me 1.0
