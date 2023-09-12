@@ -137,7 +137,8 @@ Hier ist eine kurze Zusammenfassung des bisherigen Source Codes:
     Widget build(BuildContext context) {
         return MaterialApp(
         title: 'Feed Me',
-        home: Scaffold(
+        home: SafeArea(
+            child: Scaffold(
             backgroundColor: Color(0xffba2323),
             appBar: AppBar(
             backgroundColor: Color(0xFFFFC300),
@@ -147,8 +148,7 @@ Hier ist eine kurze Zusammenfassung des bisherigen Source Codes:
                     color: Color(0xffba2323), fontWeight: FontWeight.bold),
             ),
             ),
-            body: SafeArea(
-            child: Center(
+            body: Center(
                 child: Card(
                 color: Color(0x00),
                 margin: EdgeInsets.all(16.0),
