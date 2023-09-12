@@ -14,7 +14,7 @@
 
 | AFAIK - "As far as I know" ist eine App in der die Spieler:in ihr Wissen durch beantworten von Fragen prüfen kann |
 |------------------------------------------------------------------------------------|
-|  <img src="afaik_app.png" height="300">  |
+|  <img src="afaik_app.png" height="450">  |
 
 ## AFAIK Step 1 - Initialisierung
 
