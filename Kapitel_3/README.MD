@@ -18,7 +18,7 @@
 
 | Mighty Chicken - Ein Spiel in dem man das Mighty Chicken in Heuhaufen finden muss  |
 |------------------------------------------------------------------------------------|
-|![](mighty_chicken_app.png)   |
+| <img src="mighty_chicken_app.png" height="450">  |
 
 
   Bei Mighty Chicken geht es darum das "Mighty Chicken" in einem der Heuhaufen zu finden.  
