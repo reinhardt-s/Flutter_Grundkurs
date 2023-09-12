@@ -192,7 +192,7 @@ Hier ist eine kurze Zusammenfassung des bisherigen Source Codes:
   * Die App zeigt einen schwarz/gelben Balken an, da das Bild zu groß für den Anzeigebereich ist.
   * Mit Hilfe des [`Expanded`](https://api.flutter.dev/flutter/widgets/Expanded-class.html) Widgets kann das Bild auf die gesamte Höhe des Anzeigebereichs angepasst werden.
   * Setze ein `Padding`-Widget um das `Image.asset`-Widget mit einem `padding` von 16.0
-  * Setze ein `SafeArea`-Widget um das `Center`-Widget  
+  * Setze ein `SafeArea`-Widget um das `Scaffold`-Widget  
   * Gebe der `Card`ein `margin` von 16.0
   * Setze ein [`ClipRRect`](https://api.flutter.dev/flutter/widgets/ClipRRect-class.html)-Widget um das `Image.asset`-Widget mit einer `borderRadius` von 16.0 um die Ecken abzurunden 
   * Verschiebe das `Padding`-Widget so, dass es das `ClipRRect`-Widget umschließt  
